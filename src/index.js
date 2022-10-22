@@ -1,6 +1,5 @@
 import { CurrencyExchange } from './js/currencyAPI.js';
 import 'bootstrap';
-//import 'bootstrap/dist/css/bootstrap.mini.css';
 import './css/styles.css';
 
 async function runConverter(currency) {
@@ -19,7 +18,7 @@ function getData(response) {
     let inputVal = parseFloat(document.querySelector('#US-currency-amount').value);
     let exchangeDiv = document.querySelector('#output-exchange-rate');
     let convertedDiv = document.querySelector('#output-converted');
-    const exchangeHTMLString =`The exchange rate from USD to ${response['target_code']} is ${exchangeValue} ${response['target_code']}`;
+    const exchangeHTMLString =`The exchange rate from <strong>USD</strong> to <strong> ${response['target_code']} </strong> is ${exchangeValue} ${response['target_code']}`;
     const convertedHTMLString =`${inputVal} USD = ${exchangeValue * inputVal} ${response['target_code']}`;
     exchangeDiv.innerText = exchangeHTMLString;
     convertedDiv.innerText = convertedHTMLString;
