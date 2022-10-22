@@ -4,8 +4,8 @@ export class CurrencyExchange {
     try {
       const response = await fetch(url);
       console.log(response);
-      if(response.status !== 200 && response.status === 400) {
-        throw new Error(response.statusText)
+      if(response.status !== 200 && response.status === 403) {
+        throw new Error(response.statusText);
       } else {
         return response.json();
       }

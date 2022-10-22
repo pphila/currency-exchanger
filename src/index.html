@@ -19,7 +19,7 @@
       <form id="currency-selector">
         <div id="US-currency-form">
           <label for="US-currency-amount">US Dollar:</label>
-          <input id="US-currency-amount" type="number" min="1">
+          <input id="US-currency-amount" type="number" step="1">
         </div>
         <div id="sel-currency-form">
           <label for="exchange-currency">Exchange Currency</label>
@@ -34,6 +34,8 @@
     </div>
   </div>
 
-  <div id="output-exchange"></div>
+  <div id="output-exchange-rate"></div>
+  <div id="output-converted"></div>
+  <div id="error-message"></div>
 </body>
 </html>

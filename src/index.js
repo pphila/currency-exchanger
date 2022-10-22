@@ -1,6 +1,6 @@
 import { CurrencyExchange } from './js/currencyAPI.js';
 import 'bootstrap';
-import 'bootstrap/dist/css/boostrap.mini.css';
+//import 'bootstrap/dist/css/bootstrap.mini.css';
 import './css/styles.css';
 
 // class CurrencyExchange {
@@ -22,23 +22,29 @@ import './css/styles.css';
 
 async function runConverter(currency) {
   const response = await CurrencyExchange.fetchCurrency(currency);
-  runConverter(response);
+  getData(response);
   console.log(response);
 }
-runConverter();
 
 function getData(response) {
   if (response.result !== "success") {
     document.getElementById('#error-message').innerHTML(`Something went wrong, your result returned an ${response["error-type"]}`);
   } else {
     let exchangeValue = parseFloat(response[`conversion_rate`]);
-    document.getElementById('#output-exchange').innerHTML(`The exchange rate compared to USD is ${response['target_code']} is ${exchangeValue}`);
-    
+    let inputVal = parseFloat(document.querySelector('#US-currency-amount').value);
+    let exchangeDiv = document.querySelector('#output-exchange-rate');
+    let convertedDiv = document.querySelector('#output-converted');
+    const exchangeHTMLString =`The exchange rate from USD to ${response['target_code']} is ${exchangeValue} ${response['target_code']}`;
+    const convertedHTMLString =`${inputVal} USD = ${exchangeValue * inputVal} ${response['target_code']}`;
+    exchangeDiv.innerText = exchangeHTMLString;
+    convertedDiv.innerText = convertedHTMLString;
   }
 }
 
-//UI
-//const displayExchange = (currency) => {
-//   const outputDiv = document.getElementById('output-exchange');
-//   const currencyHTMLString = 
-// }
+document.querySelector('form').addEventListener('submit', handleFormSubmit);
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  let currency = document.querySelector('#exchange-currency').value;
+  runConverter(currency);
+}
