@@ -18,7 +18,7 @@ function getData(response) {
     let inputVal = parseFloat(document.querySelector('#US-currency-amount').value);
     let exchangeDiv = document.querySelector('#output-exchange-rate');
     let convertedDiv = document.querySelector('#output-converted');
-    const exchangeHTMLString =`The exchange rate from <strong>USD</strong> to <strong> ${response['target_code']} </strong> is ${exchangeValue} ${response['target_code']}`;
+    const exchangeHTMLString =`The exchange rate from 1 USD to 1 ${response['target_code']} is ${exchangeValue} ${response['target_code']}`;
     const convertedHTMLString =`${inputVal} USD = ${exchangeValue * inputVal} ${response['target_code']}`;
     exchangeDiv.innerText = exchangeHTMLString;
     convertedDiv.innerText = convertedHTMLString;
