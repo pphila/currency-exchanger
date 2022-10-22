@@ -24,7 +24,7 @@ _This project was created as an Epicodus code review project. This application w
 * _Navigate to the directory and open in your code editor_
 * _Create a .env file in the root directory of the cloned project and store your personal API key within the .env file. *This application will not work without an API key_
 * _If you need to obtain an API key, navigate to [ExchangeRate-API](https://www.exchangerate-api.com/)_
-* _Within the .env file add API_KEY=_your API key_
+* _Within the .env file add *API_KEY=[your API key]*_
 * _In the terminal run `$npm install`_
 * _After install is complete, run `$npm run build`_
 * _Once the terminal has finished compiling, run `$npm run start` to open project live server_
