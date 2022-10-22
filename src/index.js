@@ -10,9 +10,9 @@ async function runConverter(currency) {
 
 function getData(response) {
   if (response.result !== "success") {
-    const errorDiv = document.getElementById('#error-message');
-    let errorHTMLString = `Something went wrong, your result returned an ${response["error-type"]}`;
-    errorDiv.innerText = errorHTMLString
+    let errorDiv = document.querySelector('#error-message');
+    const errorHTMLString = `Something went wrong, your result returned an ${response['error-type']}`;
+    errorDiv.innerText = errorHTMLString;
   } else {
     let exchangeValue = parseFloat(response[`conversion_rate`]);
     let inputVal = parseFloat(document.querySelector('#US-currency-amount').value);
