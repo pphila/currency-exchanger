@@ -5,7 +5,6 @@ import './css/styles.css';
 async function runConverter(currency) {
   const response = await CurrencyExchange.fetchCurrency(currency);
   getData(response);
-  console.log(response);
 }
 
 function getData(response) {
