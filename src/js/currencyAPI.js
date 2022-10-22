@@ -1,10 +1,16 @@
-
-const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`;
-  
-const fetchExchanger = async () => {
-  const response = await fetch(url);
-  const data = await response.json();
-  console.log(data);
-};
-
-fetchExchanger(); 
+export class CurrencyExchange {
+  static async fetchCurrency(currency) {
+    const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/${currency}`;
+    try {
+      const response = await fetch(url);
+      console.log(response);
+      if(response.status !== 200 && response.status === 400) {
+        throw new Error(response.statusText)
+      } else {
+        return response.json();
+      }
+    } catch(error) {
+      return error.response;
+    }
+  }
+}
