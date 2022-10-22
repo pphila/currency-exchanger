@@ -6,10 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Currency Converter</title>
 </head>
+
 <body>
+  
   <div class="header">
     <h1>Currency Exchanger</h1>
+    <p>Calculate USD to a Currency from around the world</p>
   </div>
-  <h2></h2>
+  
+  <div class="container">
+    <div class="form-input">
+      <form id="currency-selector">
+        <div id="US-currency-form">
+          <label for="US-currency-amount">US Dollar:</label>
+          <input id="US-currency-amount" type="number" min="1">
+        </div>
+        <div id="sel-currency-form">
+          <label for="exchange-currency">Exchange Currency</label>
+          <select id="exchange-currency">
+            <option value="EUR">EUR</option>
+            <option value="CAD">CAD</option>
+            <option value="JPY">JPY</option>
+          </select>
+          <button type="submit" class="btn" id="exchange-submit">Convert</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="output-exchange"></div>
 </body>
 </html>
